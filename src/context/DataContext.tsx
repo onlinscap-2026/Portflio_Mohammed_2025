@@ -105,7 +105,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
 
-   const backendUrl = 'http://localhost:4000/data';
+   const backendUrl = 'https://portflio-mohammed-2025.onrender.com/data';
   //const backendUrl = 'https://my-portofolio-5pxn.onrender.com/data1';
   
 
