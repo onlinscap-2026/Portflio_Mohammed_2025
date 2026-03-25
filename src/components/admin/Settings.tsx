@@ -122,7 +122,8 @@ const Settings: React.FC = () => {
     setCredentialsError('');
 
     try {
-      const response = await fetch('https://my-portofolio-5pxn.onrender.com/update-credentials', {
+      //const response = await fetch('https://my-portofolio-5pxn.onrender.com/update-credentials', {
+        const response = await fetch('http://localhost:4000/update-credentials', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),

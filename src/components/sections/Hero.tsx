@@ -4,6 +4,8 @@ import { ChevronDown } from 'lucide-react';
 import { useData } from '../../context/DataContext';
 import InteractiveBalls from './InteractiveBalls';
 
+
+
 const Hero: React.FC = () => {
   const { profile } = useData();
 

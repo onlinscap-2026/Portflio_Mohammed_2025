@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 10000;
 
 // Enable CORS and body-parsing
 app.use(cors());
@@ -27,6 +27,7 @@ if (!mongoUri) {
   console.error('MONGODB_URI environment variable not set');
   process.exit(1);
 }
+/*
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -35,20 +36,29 @@ mongoose.connect(mongoUri, {
 }).catch((err) => {
   console.error('MongoDB connection error:', err);
   process.exit(1);
-});
+});*/
+
+mongoose.connect(mongoUri)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+    process.exit(1);
+  });
 
 // Define Setting schema and model
 const settingSchema = new mongoose.Schema({
   key: { type: String, required: true, unique: true },
   value: { type: mongoose.Schema.Types.Mixed }
 });
+//const Setting = mongoose.model('Setting', settingSchema);
 const Setting = mongoose.model('Setting', settingSchema);
-
 // Ensure uploads folder exists and serve it
+//const uploadFolder = path.join(__dirname, '../uploads');
 const uploadFolder = path.join(__dirname, '../uploads');
 if (!fs.existsSync(uploadFolder)) {
   fs.mkdirSync(uploadFolder, { recursive: true });
 }
+//app.use('/uploads', express.static(uploadFolder));
 app.use('/uploads', express.static(uploadFolder));
 
 // Multer storage setups
@@ -124,6 +134,7 @@ app.post('/users', (_req, res) => {
 });
 
 const usersDataPath = path.join(__dirname, '../backend/data/users.json');
+//const usersDataPath = path.join(__dirname, 'data/users.json');
 let users = [];
 try {
   const usersRaw = fs.readFileSync(usersDataPath, 'utf-8');

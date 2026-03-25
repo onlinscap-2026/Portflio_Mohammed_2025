@@ -29,6 +29,8 @@ import ContactAdmin from './components/admin/Contact';
 import Settings from './components/admin/Settings';
 import Skills from './components/admin/Skills';
 
+
+
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, loading } = useAuth();
 
@@ -57,7 +59,7 @@ const Portfolio: React.FC = () => {
   const { colors } = useTheme();
 
   useEffect(() => {
-    document.title = 'John Doe | Portfolio';  // Change the title dynamically when the component is mounted
+    document.title = 'Mohammed Rashed | Portfolio';  // Change the title dynamically when the component is mounted
   }, []);
 
   if (loading) {
