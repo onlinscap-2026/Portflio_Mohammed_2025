@@ -7,7 +7,7 @@ const PORT = 4000;
 // Use CORS middleware to allow requests from the frontend origin
 app.use(cors({
   //origin: 'https://portfolio-flax-two-58.vercel.app'
-  origin: 'https://portflio-mohammed-2025-4vqtwtrs1-onlines-projects-907ea4b6.vercel.app'
+  origin: 'https://portflio-mohammed-2025.vercel.app/'
 }));
 
 app.get('/', (req, res) => {
