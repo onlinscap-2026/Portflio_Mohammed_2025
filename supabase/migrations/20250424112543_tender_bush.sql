@@ -135,11 +135,11 @@ CREATE POLICY "Authenticated users can manage experience"
 INSERT INTO profile (user_id, name, title, bio, location, email)
 SELECT 
   id,
-  'John Doe',
+  'Mohammed Rashed',
   'Frontend Developer & UI/UX Designer',
   'Passionate developer with a keen eye for design and a love for creating exceptional user experiences.',
-  'San Francisco, CA',
+  'Sanaa Yemen',
   email
 FROM users
-WHERE email = 'alzaeemraad9@gmail.com'
+WHERE email = 'onlinscap@gmail.com'
 ON CONFLICT (user_id) DO NOTHING;

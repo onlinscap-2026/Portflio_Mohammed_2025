@@ -15,7 +15,7 @@ if (!mongoUri) {
   process.exit(1);
 }
 
-mongoose.connect(mongoUri, {
+/*mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
@@ -24,13 +24,22 @@ mongoose.connect(mongoUri, {
 }).catch((err) => {
   console.error('MongoDB connection error:', err);
   process.exit(1);
-});
+});*/
+
+mongoose.connect(mongoUri)
+  .then(() =>{ console.log('Connected to MongoDB');
+   migrateData();
+  }).catch(err => {
+    console.error('MongoDB connection error:', err);
+    process.exit(1);
+  });
 
 // Define Setting schema and model
 const settingSchema = new mongoose.Schema({
   key: { type: String, required: true, unique: true },
   value: { type: mongoose.Schema.Types.Mixed }
 });
+//const Setting = mongoose.model('Setting', settingSchema);
 const Setting = mongoose.model('Setting', settingSchema);
 
 async function migrateData() {

@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 interface User {
   username: string;
+ // password:string;
 }
 
 interface AuthContextType {
@@ -22,6 +23,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       // const response = await fetch('https://my-portofolio-5pxn.onrender.com/login', {
       const response = await fetch('https://portoflio-mohammed-2025.onrender.com/Login', {
+        //const response = await fetch('http://localhost:10000/Login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -30,7 +32,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         throw new Error('Invalid username or password');
       }
       const data = await response.json();
-      setUser({ username: data.user.username });
+      setUser({ username: data.user.username});
     } catch (error) {
       setUser(null);
       throw error;

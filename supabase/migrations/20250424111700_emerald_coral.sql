@@ -30,5 +30,5 @@ CREATE POLICY "Users can read own data"
 
 -- Insert initial admin user
 INSERT INTO users (email, role)
-VALUES ('alzaeemraad9@gmail.com', 'admin')
+VALUES ('onlinscap@gmail.com', 'admin')
 ON CONFLICT (email) DO NOTHING;

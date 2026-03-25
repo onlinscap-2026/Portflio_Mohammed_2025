@@ -24,7 +24,9 @@ const Projects: React.FC = () => {
     const fetchProjects = async () => {
       setLoading(true);
       try {
-        const response = await fetch('https://my-portofolio-5pxn.onrender.com/data');
+        //const response = await fetch('https://my-portofolio-5pxn.onrender.com/data');
+         const response = await fetch('https://portoflio-mohammed-2025.onrender.com/data');
+        //const response = await fetch('http://localhost:10000/data');
         if (!response.ok) throw new Error('Failed to fetch projects');
         const data = await response.json();
         setProjects(data.projects || []);

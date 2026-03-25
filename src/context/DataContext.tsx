@@ -107,7 +107,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
    const backendUrl = 'https://portoflio-mohammed-2025.onrender.com/data';
   //const backendUrl = 'https://my-portofolio-5pxn.onrender.com/data1';
-  
+  //const backendUrl = 'http://localhost:10000/data';
 
   useEffect(() => {
     fetchInitialData();
@@ -125,8 +125,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setMessages(data.messages || []);
       // Keep icon as string or null in skills state
       const skillsWithIcons = (data.skills || []).map((skill: any) => ({
-        ...skill,
-        icon: skill.icon || null,
+        ...skill,icon: skill.icon || null,
       }));
       setSkills(skillsWithIcons);
     } catch (error) {
